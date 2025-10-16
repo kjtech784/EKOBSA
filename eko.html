@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Eko Beauty & Spa Awards — </title>
+  <meta name="description" content="Eko Beauty & Spa Awards — celebrating beauty entrepreneurs in Lagos.">
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg: #050305;
+      --gold-1: #b8860b;
+      --gold-2: #ffd700;
+      --muted: #d9d0c6;
+      --glass: rgba(255,255,255,0.03);
+      --accent-grad: linear-gradient(90deg, #b8860b, #ffd700);
+    }
+    /* Reset & base */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:
+        radial-gradient(800px 400px at 10% 10%, rgba(255,215,0,0.03), transparent),
+        radial-gradient(600px 300px at 90% 85%, rgba(184,134,11,0.02), transparent),
+        var(--bg);
+      color:var(--muted);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding-bottom:48px;
+    }
+    .container{max-width:1200px;margin:28px auto;padding:28px}
+
+    /* Header / logo */
+    header{display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .logo {
+      display:flex;align-items:center;gap:12px;
+      text-decoration:none;color:inherit;
+    }
+    .logo-badge{
+      width:64px;height:64px;border-radius:12px;
+      display:grid;place-items:center;
+      background: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(0,0,0,0.18));
+      box-shadow: 0 6px 24px rgba(0,0,0,0.6), 0 0 10px rgba(184,134,11,0.05) inset;
+      border: 1px solid rgba(255,215,0,0.06);
+    }
+    .logo-badge .mark{
+      font-family: 'Playfair Display', serif;
+      font-weight:700;
+      color:var(--gold-2);
+      font-size:20px;
+      letter-spacing:1px;
+    }
+    .brand-title{display:flex;flex-direction:column}
+    .brand-title .title{font-family:'Playfair Display',serif;color:var(--gold-2);font-size:18px}
+    .brand-title .sub{font-size:12px;color:#bfb7ad}
+
+    nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-weight:600}
+    nav a.cta{background:var(--gold-1);color:#080808;padding:10px 14px;border-radius:10px}
+
+    /* Hero */
+    .hero{
+      display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;margin-top:22px;
+    }
+    .hero-card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.08));
+      padding:28px;border-radius:18px;backdrop-filter: blur(6px);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.6);
+    }
+    .kicker{color:var(--gold-1);font-weight:700;letter-spacing:1px}
+    h1{
+      font-family:'Playfair Display',serif;
+      font-size:40px;margin:10px 0;color:var(--gold-2);
+      line-height:1.05;
+      /* shimmering text using animated gradient */
+      background: linear-gradient(90deg,#b8860b,#ffd700,#f7e3a1);
+      -webkit-background-clip: text;
+      background-clip:text;
+      color: transparent;
+      animation: shimmer 3.2s linear infinite;
+      background-size:200% 200%;
+    }
+    @keyframes shimmer {
+      0% { background-position: 0% 50%;}
+      50% { background-position: 100% 50%;}
+      100% { background-position: 0% 50%;}
+    }
+    p.lead{color:#eadfcf;margin-top:8px;font-size:15px}
+
+    .hero-cta{display:flex;gap:12px;margin-top:18px}
+    .btn{padding:12px 18px;border-radius:12px;border:none;font-weight:700;cursor:pointer}
+    .btn.gold{background:var(--gold-2);color:#000}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,215,0,0.12);color:var(--gold-2)}
+
+    /* right hero - media */
+    .hero-media{position:relative;height:420px;border-radius:18px;overflow:hidden;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.06));display:flex;align-items:center;justify-content:center}
+    .hero-media .badge{position:absolute;top:18px;left:18px;background:rgba(0,0,0,0.4);padding:8px 12px;border-radius:10px;border:1px solid rgba(255,215,0,0.06)}
+    .hero-media video{width:100%;height:100%;object-fit:cover;opacity:0.98}
+
+    /* Categories grid */
+    .section{margin-top:34px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+    .card{
+      background:var(--glass);padding:14px;border-radius:14px;overflow:hidden;position:relative;
+      transition: transform .35s cubic-bezier(.2,.9,.3,1), box-shadow .28s;
+      border:1px solid rgba(255,215,0,0.03);
+    }
+    .card:hover{transform: translateY(-8px);box-shadow:0 24px 48px rgba(0,0,0,0.6)}
+    .card h3{margin:10px 0 6px;color:var(--gold-2);font-family:'Playfair Display',serif}
+    .card p{color:#d9d0c6;margin:0 0 8px;font-size:14px}
+    .card .poster{width:100%;height:170px;border-radius:10px;object-fit:cover;display:block;overflow:hidden;background:#111}
+    .play-btn{
+      position:absolute;right:14px;bottom:14px;background:var(--gold-1);color:#000;padding:8px 12px;border-radius:10px;font-weight:800;cursor:pointer;border:0;
+      box-shadow:0 6px 18px rgba(184,134,11,0.12);
+    }
+
+    /* shimmering category title on hover */
+    .card .cat-title{
+      display:inline-block;
+      background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
+      transition: background-position .6s;
+      background-size:200%;
+    }
+    .card:hover .cat-title{background-image:var(--accent-grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+
+    /* modal */
+    .modal{
+      position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:linear-gradient(rgba(1,1,1,0.6),rgba(1,1,1,0.75));z-index:1200;padding:20px;
+    }
+    .modal.open{display:flex}
+    .modal-inner{width:100%;max-width:980px;border-radius:12px;overflow:hidden;background:#000;border:1px solid rgba(255,215,0,0.06)}
+    .modal-header{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:linear-gradient(90deg, rgba(255,215,0,0.02), transparent)}
+    .modal-title{font-weight:800;color:var(--gold-2)}
+    .modal-close{background:transparent;border:0;color:#fff;font-weight:700;cursor:pointer;font-size:18px}
+    .modal-video{width:100%;height:560px;background:#000}
+    .modal-video video{width:100%;height:100%;object-fit:cover}
+
+    /* footer */
+    footer{margin-top:40px;padding:18px;border-radius:12px;background:linear-gradient(180deg,transparent,rgba(255,215,0,0.02));display:flex;justify-content:space-between;align-items:center}
+    .muted{color:#bfb7ad;font-size:13px}
+
+    /* responsive */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr;gap:18px}
+      .hero-media{height:320px}
+      .modal-video{height:320px}
+    }
+
+    /* subtle animation for headings */
+    .section h2{
+      font-family:'Playfair Display',serif;color:var(--gold-2);
+      position:relative;display:inline-block;margin:0;padding-bottom:6px;
+    }
+    .section h2::after{
+      content:"";position:absolute;left:0;bottom:0;height:3px;width:60%;background:var(--gold-2);opacity:0.18;border-radius:3px;
+      transform-origin:left;transform:scaleX(0);transition:transform .6s cubic-bezier(.2,.9,.3,1);
+    }
+    .section:hover h2::after{transform:scaleX(1)}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a class="logo" href="#" aria-label="Eko Beauty and Spa Awards home">
+        <div class="logo-badge" aria-hidden="true">
+          <div class="mark"></div>
+        </div>
+        <div class="brand-title">
+          <div class="title">Eko Beauty &amp; Spa Awards</div>
+          <div class="sub muted">Celebrating Lagos' beauty entrepreneurs</div>
+        </div>
+      </a>
+
+      <nav>
+        <a href="#about">About</a>
+        <a href="#categories">Categories</a>
+        <a href="#tickets" class="cta">Get Tickets</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="hero" aria-label="Hero">
+        <div class="hero-card">
+          <div class="kicker">Lagos • Annual Awards</div>
+          <h1>Honouring creative excellence in beauty & wellness</h1>
+          <p class="lead">Eko Beauty &amp; Spa Awards (EKoBSP) celebrates the visionaries — salon owners, stylists, artists and techs that make Lagos a beauty capital. Join us for a night of recognition, networking and inspiration.</p>
+
+          <div class="hero-cta">
+            <button class="btn gold" onclick="document.location='#tickets'">Buy Tickets</button>
+            <button class="btn ghost" onclick="document.getElementById('categories').scrollIntoView({behavior:'smooth'})">See Categories</button>
+          </div>
+
+          <div style="margin-top:18px;color:#cdbfae;font-size:13px">eventDate: <strong id="eventDate">Dec 14, 2025</strong></div>
+        </div>
+
+        <div class="hero-media" aria-hidden="false">
+          <div class="badge muted">EKoBSP • Lagos</div>
+          <!-- looping muted video as decorative hero — replace with your hero video -->
+          <video autoplay muted loop playsinline poster="img/bridal 3.jpg">
+            <source src="video/EkoBSA landing page.mp4" type="video/mp4">
+            <!-- fallback -->
+          </video>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about" class="section" aria-labelledby="aboutHeading">
+        <h2 id="aboutHeading">About the Awards</h2>
+        <p class="muted" style="max-width:850px;margin-top:12px">
+          EKoBSP honours achievement across multiple categories, supporting career growth and raising the profile of the Nigerian beauty industry.
+          Winners are selected via jury shortlists plus public voting for select categories.
+        </p>
+      </section>
+
+      <!-- CATEGORIES / VIDEO GALLERY -->
+      <section id="categories" class="section" aria-labelledby="catHeading">
+        <h2 id="catHeading">Award Categories &amp; Video Showcase</h2>
+        <p class="muted" style="margin-top:8px"></p>
+
+        <div class="grid" style="margin-top:14px">
+          <!-- Card template: change poster, title, description, and data-src to your own video -->
+          <article class="card" data-video-src="video/EkoBSA luxury spa.mp4">
+            <img class="poster" src="img/spa 1.jpg" alt="Best Makeup Artist poster">
+            <h3 class="cat-title">Best Luxury Spa Experience</h3>
+            <p>Recognising outstanding beauty and spa entrepreneurs.</p>
+            <button class="play-btn" onclick="openModal(this)">PLAY</button>
+          </article>
+
+          <article class="card" data-video-src="video/EkoBSA Barber.mp4">
+            <img class="poster" src="img/hair cut 3.jpg" alt="Best SFX Special Effect">
+            <h3 class="cat-title">BEST SFX Special Effect</h3>
+            <p>Precision fades, creative grooming and men’s styling excellence.</p>
+            <button class="play-btn" onclick="openModal(this)">PLAY</button>
+          </article>
+
+          <article class="card" data-video-src="video/EkoBSA 5 SFX.mp4">
+            <img class="poster" src="img/sfx 2.jpg" alt="Best Special Effects Artist poster">
+            <h3 class="cat-title">Best Special Effect Artist</h3>
+            <p>Honouring SFX mastery for film, theatre, and editorial transformations.</p>
+            <button class="play-btn" onclick="openModal(this)">PLAY</button>
+          </article>
+
+          <article class="card" data-video-src="video/EkoBSA Bridal Styling.mp4">
+            <img class="poster" src="img/bridal hair 2.jpg" alt="Best Bridal Hair Stylist poster">
+            <h3 class="cat-title">Best Bridal Hair Stylist</h3>
+            <p>Elegant updos, traditional and contemporary bridal styles.</p>
+            <button class="play-btn" onclick="openModal(this)">PLAY</button>
+          </article>
+
+          <article class="card" data-video-src="EkoBSA best colorist.mp4">
+            <img class="poster" src="img/color 2.jpg" alt="Best hair colorist poster">
+            <h3 class="cat-title">Best Hair Colorist</h3>
+            <p>Creativity in hair color — from cornrows to avant-garde looks.</p>
+            <button class="play-btn" onclick="openModal(this)">PLAY</button>
+          </article>
+
+          <article class="card" data-video-src="video/EkoBSA best briad.mp4">
+            <img class="poster" src="img/braid 3.jpg" alt="Best Nail Technician poster">
+            <h3 class="cat-title">Best Braid</h3>
+            <p>Excellence in Braiding,and salon experience.</p>
+            <button class="play-btn" onclick="openModal(this)">PLAY</button>
+          </article>
+
+          <article class="card" data-video-src="video/EkoBSA lash.mp4">
+            <img class="poster" src="img/beauty entre..png" alt="Best Lash Technician poster">
+            <h3 class="cat-title">Best Lash Technician</h3>
+            <p>For skillful lash enhancements that boost confidence and style.</p>
+            <button class="play-btn" onclick="openModal(this)">PLAY</button>
+          </article>
+        </div>
+      </section>
+
+      <!-- Tickets -->
+      <section id="tickets" class="section" aria-labelledby="ticketHeading">
+        <h2 id="ticketHeading">OTHER CATEGORY <div> Best Make-up artists </div> <div> Best Skin Care Specialist</div>
+         <div> Best Nail Tech</div> <div> Best Salon</div> <div> Best Wigs and Extension</div>
+         <div> and many more..</div>
+        </h2>
+        <div style="display:grid;grid-template-columns:1fr 320px;gap:18px;margin-top:12px;align-items:start">
+          <div class="card">
+            <h3>Ticket Types</h3>
+            <ul class="muted" style="margin-top:8px">
+              <li>General Admission — Ceremony & after-party</li>
+              <li>VIP Table — Premium seating, drinks & networking</li>
+              <li>Brand Packages — Stalls & showcase opportunities</li>
+            </ul>
+            <p class="muted" style="margin-top:8px">For group bookings and vendor enquiries, email <a style="color:var(--gold-2)" href="mailto:ekobeautyandspaaward@gmail.com">ekobeautyandspaaward@gmail.com</a></p>
+          </div>
+          <div class="card">
+            <h3>Secure Your Seat</h3>
+            <p class="muted">Limited tickets available — reserve now.</p>
+            <button class="btn gold" style="width:100%;margin-top:12px">Buy Tickets</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>
+        <strong style="color:var(--gold-2)">Eko Beauty &amp; Spa Awards</strong><br>
+        <span class="muted">© <span id="year"></span> EKoBSP Foundation</span>
+      </div>
+      <div class="muted">Contact: <a style="color:var(--gold-2)" href="mailto:ekobeautyandspaaward@gmail.com">ekobeautyandspaaward@gmail.com</a></div>
+    </footer>
+  </div>
+
+  <!-- VIDEO MODAL -->
+  <div id="videoModal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-inner" role="document">
+      <div class="modal-header">
+        <div class="modal-title" id="modalTitle">Playing video</div>
+        <button class="modal-close" aria-label="Close video" onclick="closeModal()">✕</button>
+      </div>
+      <div class="modal-video" id="modalVideoWrap">
+        <!-- video element inserted here by JS -->
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Modal controls
+    const modal = document.getElementById('videoModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalVideoWrap = document.getElementById('modalVideoWrap');
+
+    // Open modal when a play button is clicked
+    function openModal(button){
+      // find parent card and video source
+      const card = button.closest('.card');
+      const title = card.querySelector('.cat-title')?.textContent || 'Category video';
+      const src = card.getAttribute('data-video-src') || '';
+      modalTitle.textContent = title;
+      // remove any existing video
+      modalVideoWrap.innerHTML = '';
+      // create video element
+      if(src){
+        const v = document.createElement('video');
+        v.setAttribute('controls', '');
+        v.setAttribute('autoplay', '');
+        v.setAttribute('playsinline', '');
+        v.style.width = '100%';
+        v.style.height = '100%';
+        v.style.objectFit = 'cover';
+        // for YouTube links or external providers you'd embed an iframe instead
+        const srcEl = document.createElement('source');
+        srcEl.src = src;
+        srcEl.type = 'video/mp4';
+        v.appendChild(srcEl);
+        modalVideoWrap.appendChild(v);
+      } else {
+        modalVideoWrap.innerHTML = '<div style="padding:28px;color:#fff">Video not available</div>';
+      }
+      // show modal
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      // trap keyboard focus (basic)
+      document.addEventListener('keydown', handleEsc);
+    }
+
+    function closeModal(){
+      // stop and remove video
+      const vid = modalVideoWrap.querySelector('video');
+      if(vid){
+        try { vid.pause(); vid.removeAttribute('src'); } catch(e){}
+      }
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden','true');
+      modalVideoWrap.innerHTML = '';
+      document.removeEventListener('keydown', handleEsc);
+    }
+
+    function handleEsc(e){
+      if(e.key === 'Escape') closeModal();
+    }
+
+    // Close modal when clicking outside inner panel
+    modal.addEventListener('click', (ev)=>{
+      if(ev.target === modal) closeModal();
+    });
+
+    // Improve keyboard access: open modal on Enter for play buttons
+    document.querySelectorAll('.play-btn').forEach(btn=>{
+      btn.setAttribute('tabindex','0');
+      btn.addEventListener('keyup', (e)=>{ if(e.key === 'Enter') openModal(btn); });
+    });
+
+    // Accessibility tip: announce modal open
+    const observer = new MutationObserver(()=>{
+      if(modal.classList.contains('open')) modal.setAttribute('aria-hidden','false');
+      else modal.setAttribute('aria-hidden','true');
+    });
+    observer.observe(modal, { attributes:true, attributeFilter:['class']});
+  </script>
+</body>
+</html>
